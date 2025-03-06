@@ -1,4 +1,4 @@
-# FDLIN1
+# Terraform-multi-cloud-talos
 
 This module simply kicks off the clusters defined in the variable "clusters" in locals.tf.
 
