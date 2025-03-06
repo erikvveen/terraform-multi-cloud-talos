@@ -1,4 +1,4 @@
-# Terraform-multi-cloud-talos
+# Terraform-multi-cloud-talos# FDLIN1
 
 This module simply kicks off the clusters defined in the variable "clusters" in locals.tf.
 
@@ -9,7 +9,7 @@ Before downloading this code and executing it simply with a "terraform init" and
 In this testing phase the script assumes you need both credentials for AWS and Linode. 
 If you have only one credentials for one platform I suggest you simply gray out the module you do not have the credentials for (Linode or AWS).
 
-Your credentials can be set by creating an env variable: TF_VAR_linode_token=<your token> and e.g. running "aws sso login --profile <your profile>"
+Your credentials can be set by creating an env variable: TF_VAR_linode_token=\<your token\> and e.g. running "aws sso login --profile \<your profile\>"
 
 The code in "clusters.tf" kicks off the clusters with Cilium as CNI.
 
@@ -25,6 +25,5 @@ The "addon" files can only be use mutual-exclusive and represent a specific test
 
 "addon-standard-sidecar.tf" represents a setup that implements ISTIO with a "sidecar" setup. An "echoserver" pod is kicked off with an "echoserver" service that uses the k8s Gateway pattern to expose to an automatically created Loadbancer-ip at port 5005 a simple index.html file. 
 
-Correct functioning of the setup can be tested for each cluster the ip address of the "echoserver" service (shown by "kubectl get services -A") and do a "wget <Loadbalancer-ip-address>:5005". A index.html should be downloaded.
-
+Correct functioning of the setup can be tested for each cluster by obtaining the IP address of the "echoserver" service (shown by "kubectl get services -A") and performing a "wget \<Loadbalancer-ip-address\>:5005". An index.html file should be downloaded.
 
